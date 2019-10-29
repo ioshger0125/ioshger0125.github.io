@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,7 +102,7 @@
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;29&#x2F;Redis-%E9%9B%86%E7%BE%A4%E7%9B%91%E6%8E%A7%E4%B9%8BRedis%20monitor&#x2F;index.html">
 <meta property="og:site_name" content="活到老，学到老">
 <meta property="og:description" content="连续两天配置Redis 集群监控，尝试过三种开源软件，Redis-live,Redis-state,Redis-monitor ，由于内网生产环境，每一个软件的部署都费了老劲。简单说一下，避免再有人趟坑。 1、Redis-live此项目5年没有维护过了，解决完所有的依赖如: python-devel redis-py, pip, setuptools, dateutil, tornado安装完成后">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-10-29T01:30:32.301Z">
 <meta name="twitter:card" content="summary">
 
@@ -112,14 +112,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -157,7 +157,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -205,17 +205,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-首页"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-归档"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Archives
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -225,7 +235,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-标签"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -289,9 +299,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-29T09:28:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-29T09:28:21+08:00">
                 2019-10-29
               </time>
             
@@ -450,10 +460,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -472,15 +482,33 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">posts</span>
+              <a href="/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -551,13 +579,13 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -677,14 +705,6 @@
 
 
 
-
-	
-
-
-
-
-
-  
 
 
 

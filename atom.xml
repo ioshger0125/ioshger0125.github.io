@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-29T03:44:33.503Z</updated>
+  <updated>2019-10-29T03:59:36.629Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,31 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>HIVE指定引擎队列的三种方式</title>
-    <link href="http://yoursite.com/2019/10/29/HIVE%E6%8C%87%E5%AE%9A%E5%BC%95%E6%93%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
-    <id>http://yoursite.com/2019/10/29/HIVE指定引擎队列的三种方式/</id>
-    <published>2019-10-29T03:45:02.611Z</published>
-    <updated>2019-10-29T03:44:33.503Z</updated>
+    <title>点点滴滴</title>
+    <link href="http://yoursite.com/2019/10/29/%E7%82%B9%E7%82%B9%E6%BB%B4%E6%BB%B4/"/>
+    <id>http://yoursite.com/2019/10/29/点点滴滴/</id>
+    <published>2019-10-29T03:57:26.819Z</published>
+    <updated>2019-10-29T03:59:36.629Z</updated>
     
-    <content type="html"><![CDATA[<p>Hive提供三种可以改变环境变量的方法</p><ul><li><p>修改${HIVE_HOME}/conf/hive-site.xml配置文件</p></li><li><p>命令行参数</p></li><li><p>在已经进入cli时进行参数声明</p></li></ul><h3 id="修改配置文件方式"><a href="#修改配置文件方式" class="headerlink" title="修改配置文件方式"></a>修改配置文件方式</h3><p>在Hive中，所有的默认配置都在HIVEHOME/conf/hive−default.xml文件中，如果需要对默认的配置进行修改，可以创建一个hive−site.xml文件，放在{HIVE_HOME}/conf/hive-default.xml文件中，里面可以对一些配置进行个性化设定。在hive-site.xml的格式如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hive.metastore.warehouse.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/user/hive/warehouse&lt;/value&gt;</span><br><span class="line">        &lt;description&gt;location of</span><br><span class="line">              default database for the warehouse&lt;/description&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure><p>所有的配置都是放在标签之间，一个configuration标签里面可以存在多个标签。标签里面就是我们想要设定属性的名称；标签里面是我们想要设定的值；&lt;description;&lt;标签是描述在这个属性的，可以不写。绝大多少配置都是在xml文件里面配置的，因为在这里做的配置都全局用户都生效，而且是永久的。用户自定义配置会覆盖默认配置。另外，Hive也会读入Hadoop的配置，因为Hive是作为Hadoop的客户端启动的，Hive的配置会覆盖Hadoop的配置。</p><h3 id="指定hiveconf方式"><a href="#指定hiveconf方式" class="headerlink" title="指定hiveconf方式"></a>指定hiveconf方式</h3><p>在启动Hive cli的时候进行配置，可以在命令行添加-hiveconf param=value来设定参数，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --hiveconf mapreduce.job.queuename=queue1</span><br></pre></td></tr></table></figure><p>这样在Hive中所有MapReduce作业都提交到队列queue1中。这一设定对本次启动的会话有效，下次启动需要重新配置。</p><h3 id="set方式指定队列"><a href="#set方式指定队列" class="headerlink" title="set方式指定队列"></a>set方式指定队列</h3><p>在已经进入cli时进行参数声明，可以在HQL中使用SET关键字设定参数，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set mapreduce.job.queuename=queue1;</span><br></pre></td></tr></table></figure><p>这样也能达到方法二的效果。这种配置也是对本次启动的会话有效，下次启动需要重新配置。在HQL中使用SET关键字还可以查看配置的值，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set mapreduce.job.queuename;</span><br><span class="line"></span><br><span class="line">mapreduce.job.queuename=queue1</span><br></pre></td></tr></table></figure><p>我们可以得到mapreduce.job.queuename=queue1。如果set后面什么都不添加，这样可以查到Hive的所有属性配置，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set;</span><br><span class="line">datanucleus.autoCreateSchema=true</span><br><span class="line">datanucleus.autoStartMechanismMode=checked</span><br><span class="line">datanucleus.cache.level2=false</span><br><span class="line">datanucleus.cache.level2.type=none</span><br><span class="line">datanucleus.connectionPoolingType=DBCP</span><br><span class="line">datanucleus.identifierFactory=datanucleus</span><br><span class="line">datanucleus.plugin.pluginRegistryBundleCheck=LOG</span><br><span class="line">datanucleus.storeManagerType=rdbms</span><br><span class="line">datanucleus.transactionIsolation=read-committed</span><br><span class="line">datanucleus.validateColumns=false</span><br><span class="line">datanucleus.validateConstraints=false</span><br><span class="line">datanucleus.validateTables=false</span><br></pre></td></tr></table></figure><p>上述三种设定方式的优先级依次递增。即参数声明覆盖命令行参数，命令行参数覆盖配置文件设定。</p>]]></content>
+    <content type="html"><![CDATA[<hr><h2 id="记录以后学习中的点点滴滴"><a href="#记录以后学习中的点点滴滴" class="headerlink" title="记录以后学习中的点点滴滴"></a>记录以后学习中的点点滴滴</h2>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Hive提供三种可以改变环境变量的方法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;修改${HIVE_HOME}/conf/hive-site.xml配置文件&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;命令行参数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在已经进入cli时进行参数声明&lt;/p&gt;
-&lt;/l
+        &lt;hr&gt;
+&lt;h2 id=&quot;记录以后学习中的点点滴滴&quot;&gt;&lt;a href=&quot;#记录以后学习中的点点滴滴&quot; class=&quot;headerlink&quot; title=&quot;记录以后学习中的点点滴滴&quot;&gt;&lt;/a&gt;记录以后学习中的点点滴滴&lt;/h2&gt;
       
     
     </summary>
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>HIVE指定引擎队列的三种方式</title>
+    <link href="http://yoursite.com/2019/10/29/HIVE%E6%8C%87%E5%AE%9A%E5%BC%95%E6%93%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>http://yoursite.com/2019/10/29/HIVE指定引擎队列的三种方式/</id>
+    <published>2019-10-29T03:45:02.611Z</published>
+    <updated>2019-10-29T07:09:03.114Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>修改${HIVE_HOME}/conf/hive-site.xml配置文件</p></li><li><p>命令行参数</p></li><li><p>在已经进入cli时进行参数声明</p></li></ul><h3 id="修改配置文件方式"><a href="#修改配置文件方式" class="headerlink" title="修改配置文件方式"></a>修改配置文件方式</h3><p>在Hive中，所有的默认配置都在HIVEHOME/conf/hive−default.xml文件中，如果需要对默认的配置进行修改，可以创建一个hive−site.xml文件，放在{HIVE_HOME}/conf/hive-default.xml文件中，里面可以对一些配置进行个性化设定。在hive-site.xml的格式如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hive.metastore.warehouse.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/user/hive/warehouse&lt;/value&gt;</span><br><span class="line">        &lt;description&gt;location of</span><br><span class="line">              default database for the warehouse&lt;/description&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure><p>所有的配置都是放在标签之间，一个configuration标签里面可以存在多个标签。标签里面就是我们想要设定属性的名称；标签里面是我们想要设定的值；&lt;description;&lt;标签是描述在这个属性的，可以不写。绝大多少配置都是在xml文件里面配置的，因为在这里做的配置都全局用户都生效，而且是永久的。用户自定义配置会覆盖默认配置。另外，Hive也会读入Hadoop的配置，因为Hive是作为Hadoop的客户端启动的，Hive的配置会覆盖Hadoop的配置。</p><h3 id="指定hiveconf方式"><a href="#指定hiveconf方式" class="headerlink" title="指定hiveconf方式"></a>指定hiveconf方式</h3><p>在启动Hive cli的时候进行配置，可以在命令行添加-hiveconf param=value来设定参数，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --hiveconf mapreduce.job.queuename=queue1</span><br></pre></td></tr></table></figure><p>这样在Hive中所有MapReduce作业都提交到队列queue1中。这一设定对本次启动的会话有效，下次启动需要重新配置。</p><h3 id="set方式指定队列"><a href="#set方式指定队列" class="headerlink" title="set方式指定队列"></a>set方式指定队列</h3><p>在已经进入cli时进行参数声明，可以在HQL中使用SET关键字设定参数，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set mapreduce.job.queuename=queue1;</span><br></pre></td></tr></table></figure><p>这样也能达到方法二的效果。这种配置也是对本次启动的会话有效，下次启动需要重新配置。在HQL中使用SET关键字还可以查看配置的值，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set mapreduce.job.queuename;</span><br><span class="line"></span><br><span class="line">mapreduce.job.queuename=queue1</span><br></pre></td></tr></table></figure><p>我们可以得到mapreduce.job.queuename=queue1。如果set后面什么都不添加，这样可以查到Hive的所有属性配置，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set;</span><br><span class="line">datanucleus.autoCreateSchema=true</span><br><span class="line">datanucleus.autoStartMechanismMode=checked</span><br><span class="line">datanucleus.cache.level2=false</span><br><span class="line">datanucleus.cache.level2.type=none</span><br><span class="line">datanucleus.connectionPoolingType=DBCP</span><br><span class="line">datanucleus.identifierFactory=datanucleus</span><br><span class="line">datanucleus.plugin.pluginRegistryBundleCheck=LOG</span><br><span class="line">datanucleus.storeManagerType=rdbms</span><br><span class="line">datanucleus.transactionIsolation=read-committed</span><br><span class="line">datanucleus.validateColumns=false</span><br><span class="line">datanucleus.validateConstraints=false</span><br><span class="line">datanucleus.validateTables=false</span><br></pre></td></tr></table></figure><p>上述三种设定方式的优先级依次递增。即参数声明覆盖命令行参数，命令行参数覆盖配置文件设定。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;修改${HIVE_HOME}/conf/hive-site.xml配置文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;命令行参数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在已经进入cli时进行参数声明&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;修改配置文件方式&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="Big Data" scheme="http://yoursite.com/categories/Big-Data/"/>
+    
+      <category term="Hive" scheme="http://yoursite.com/categories/Big-Data/Hive/"/>
+    
+    
+      <category term="Hive" scheme="http://yoursite.com/tags/Hive/"/>
+    
+      <category term="Engine Queue" scheme="http://yoursite.com/tags/Engine-Queue/"/>
     
   </entry>
   
