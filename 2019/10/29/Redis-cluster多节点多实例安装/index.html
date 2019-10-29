@@ -96,11 +96,14 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="活到老，学到老">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta name="description" content="背景说明注：官方给出的安装文档是在一台物理机安装多个Redis实例，https:&#x2F;&#x2F;redis.io&#x2F;topics&#x2F;cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单 环境信息6台物理机 CentOS7.2-1511-minimal ip:192.168.1.101-192.168.1.106 网络环境：内网 挂载Everything.iso作为本地yum源 ，可参考我的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis-cluster多节点多实例安装">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;29&#x2F;Redis-cluster%E5%A4%9A%E8%8A%82%E7%82%B9%E5%A4%9A%E5%AE%9E%E4%BE%8B%E5%AE%89%E8%A3%85&#x2F;index.html">
 <meta property="og:site_name" content="活到老，学到老">
+<meta property="og:description" content="背景说明注：官方给出的安装文档是在一台物理机安装多个Redis实例，https:&#x2F;&#x2F;redis.io&#x2F;topics&#x2F;cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单 环境信息6台物理机 CentOS7.2-1511-minimal ip:192.168.1.101-192.168.1.106 网络环境：内网 挂载Everything.iso作为本地yum源 ，可参考我的">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-29T02:34:29.588Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/10/29/Redis-cluster多节点多实例安装/"/>
 
 
 
 
 
-  <title>活到老，学到老</title>
+  <title>Redis-cluster多节点多实例安装 | 活到老，学到老</title>
   
 
 
@@ -161,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,166 +247,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/29/HIVE%E6%8C%87%E5%AE%9A%E5%BC%95%E6%93%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="hg">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="活到老，学到老">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/29/HIVE%E6%8C%87%E5%AE%9A%E5%BC%95%E6%93%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/" itemprop="url">HIVE指定引擎队列的三种方式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-29T11:45:02+08:00">
-                2019-10-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/29/HIVE%E6%8C%87%E5%AE%9A%E5%BC%95%E6%93%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/10/29/HIVE指定引擎队列的三种方式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Hive提供三种可以改变环境变量的方法</p>
-<ul>
-<li><p>修改${HIVE_HOME}/conf/hive-site.xml配置文件</p>
-</li>
-<li><p>命令行参数</p>
-</li>
-<li><p>在已经进入cli时进行参数声明</p>
-</li>
-</ul>
-<h3 id="修改配置文件方式"><a href="#修改配置文件方式" class="headerlink" title="修改配置文件方式"></a>修改配置文件方式</h3><p>在Hive中，所有的默认配置都在HIVEHOME/conf/hive−default.xml文件中，如果需要对默认的配置进行修改，可以创建一个hive−site.xml文件，放在{HIVE_HOME}/conf/hive-default.xml文件中，里面可以对一些配置进行个性化设定。在hive-site.xml的格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hive.metastore.warehouse.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/user/hive/warehouse&lt;/value&gt;</span><br><span class="line">        &lt;description&gt;location of</span><br><span class="line">              default database for the warehouse&lt;/description&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-
-<p>所有的配置都是放在标签之间，一个configuration标签里面可以存在多个标签。标签里面就是我们想要设定属性的名称；标签里面是我们想要设定的值；&lt;description;&lt;标签是描述在这个属性的，可以不写。绝大多少配置都是在xml文件里面配置的，因为在这里做的配置都全局用户都生效，而且是永久的。用户自定义配置会覆盖默认配置。另外，Hive也会读入Hadoop的配置，因为Hive是作为Hadoop的客户端启动的，Hive的配置会覆盖Hadoop的配置。</p>
-<h3 id="指定hiveconf方式"><a href="#指定hiveconf方式" class="headerlink" title="指定hiveconf方式"></a>指定hiveconf方式</h3><p>在启动Hive cli的时候进行配置，可以在命令行添加-hiveconf param=value来设定参数，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --hiveconf mapreduce.job.queuename=queue1</span><br></pre></td></tr></table></figure>
-
-<p>这样在Hive中所有MapReduce作业都提交到队列queue1中。这一设定对本次启动的会话有效，下次启动需要重新配置。</p>
-<h3 id="set方式指定队列"><a href="#set方式指定队列" class="headerlink" title="set方式指定队列"></a>set方式指定队列</h3><p>在已经进入cli时进行参数声明，可以在HQL中使用SET关键字设定参数，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set mapreduce.job.queuename=queue1;</span><br></pre></td></tr></table></figure>
-
-<p>这样也能达到方法二的效果。这种配置也是对本次启动的会话有效，下次启动需要重新配置。在HQL中使用SET关键字还可以查看配置的值，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set mapreduce.job.queuename;</span><br><span class="line"></span><br><span class="line">mapreduce.job.queuename=queue1</span><br></pre></td></tr></table></figure>
-
-<p>我们可以得到mapreduce.job.queuename=queue1。如果set后面什么都不添加，这样可以查到Hive的所有属性配置，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; set;</span><br><span class="line">datanucleus.autoCreateSchema=true</span><br><span class="line">datanucleus.autoStartMechanismMode=checked</span><br><span class="line">datanucleus.cache.level2=false</span><br><span class="line">datanucleus.cache.level2.type=none</span><br><span class="line">datanucleus.connectionPoolingType=DBCP</span><br><span class="line">datanucleus.identifierFactory=datanucleus</span><br><span class="line">datanucleus.plugin.pluginRegistryBundleCheck=LOG</span><br><span class="line">datanucleus.storeManagerType=rdbms</span><br><span class="line">datanucleus.transactionIsolation=read-committed</span><br><span class="line">datanucleus.validateColumns=false</span><br><span class="line">datanucleus.validateConstraints=false</span><br><span class="line">datanucleus.validateTables=false</span><br></pre></td></tr></table></figure>
-
-<p>上述三种设定方式的优先级依次递增。即参数声明覆盖命令行参数，命令行参数覆盖配置文件设定。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -435,9 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/29/Redis-cluster%E5%A4%9A%E8%8A%82%E7%82%B9%E5%A4%9A%E5%AE%9E%E4%BE%8B%E5%AE%89%E8%A3%85/" itemprop="url">Redis-cluster多节点多实例安装</a></h1>
+          <h1 class="post-title" itemprop="name headline">Redis-cluster多节点多实例安装</h1>
         
 
         <div class="post-meta">
@@ -498,9 +340,7 @@
       
 
       
-        
-          
-            <h2 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h2><p>注：官方给出的安装文档是在一台物理机安装多个Redis实例，<a href="https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单</a></p>
+        <h2 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h2><p>注：官方给出的安装文档是在一台物理机安装多个Redis实例，<a href="https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单</a></p>
 <h2 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h2><p>6台物理机 CentOS7.2-1511-minimal</p>
 <p>ip:192.168.1.101-192.168.1.106</p>
 <p>网络环境：内网 挂载Everything.iso作为本地yum源 ，可参考我的一篇文章 <a href="http://blog.csdn.net/github_38358734/article/details/70212412" target="_blank" rel="noopener">http://blog.csdn.net/github_38358734/article/details/70212412</a></p>
@@ -585,8 +425,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ruby-2.3.0$</span><br><span class="line"></span><br><span class="line">./configure --with-openssl-dir=/software/redis-3.2.6/ext/openssl</span><br><span class="line"></span><br><span class="line">$ make$ sudo make install</span><br></pre></td></tr></table></figure>
 <p>再次安装，成功。<br>至此，redis集群在多节点多实例的部署安装就完成。 </p>
 
-          
-        
       
     </div>
     
@@ -603,155 +441,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/29/Redis-%E9%9B%86%E7%BE%A4%E7%9B%91%E6%8E%A7%E4%B9%8BRedis%20monitor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="hg">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="活到老，学到老">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/29/Redis-%E9%9B%86%E7%BE%A4%E7%9B%91%E6%8E%A7%E4%B9%8BRedis%20monitor/" itemprop="url">Redis-集群监控之Redis monitor</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-29T09:28:21+08:00">
-                2019-10-29
-              </time>
+              <a href="/2019/10/29/Redis-%E9%9B%86%E7%BE%A4%E7%9B%91%E6%8E%A7%E4%B9%8BRedis%20monitor/" rel="next" title="Redis-集群监控之Redis monitor">
+                <i class="fa fa-chevron-left"></i> Redis-集群监控之Redis monitor
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2019/10/29/HIVE%E6%8C%87%E5%AE%9A%E5%BC%95%E6%93%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/" rel="prev" title="HIVE指定引擎队列的三种方式">
+                HIVE指定引擎队列的三种方式 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/29/Redis-%E9%9B%86%E7%BE%A4%E7%9B%91%E6%8E%A7%E4%B9%8BRedis%20monitor/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/10/29/Redis-集群监控之Redis monitor/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>连续两天配置Redis 集群监控，尝试过三种开源软件，Redis-live,Redis-state,Redis-monitor ，由于内网生产环境，每一个软件的部署都费了老劲。<br>简单说一下，避免再有人趟坑。</p>
-<h3 id="1、Redis-live"><a href="#1、Redis-live" class="headerlink" title="1、Redis-live"></a>1、Redis-live</h3><p>此项目5年没有维护过了，解决完所有的依赖如: python-devel redis-py, pip, setuptools, dateutil, tornado安装完成后启动 redis-monitor.py –duraion=120 后120s 自动shutting down，google了一下，很多人遇到这个问题，看到过比较一致的解释是依赖于google的js文件，内网的话就不要考虑了，没有找到任何的解决方案。内网不建议安装。</p>
-<h3 id="2、Redis-stat"><a href="#2、Redis-stat" class="headerlink" title="2、Redis-stat"></a>2、Redis-stat</h3><p>有外网的情况下是很容易安装的，需要ruby-2.0以上版本，yum 安装的话需要卸载 ruby ruby-doc 源码安装如ruby-2.1.9，需要重建软连接 ln -s<br>内网安装gem依赖就比较麻烦了，两种方式：</p>
-<p>（1）<a href="https://rubygems.org" target="_blank" rel="noopener">https://rubygems.org</a> 下载所有的依赖<br>（2）在一台有外网的Linux虚机安装完ruby-2.1.9 以后， 2.替换rubygems源</p>
-<p><code>gem sources –add https://ruby.taobao.org/ –remove http://rubygems.org/</code><br><code>gem install redis-stat</code></p>
-<p>gem 会下载所有的.gem依赖在caches里，拷贝出来放到目标主机，在目标主机执行 </p>
-<p><code>gem install caches/*</code><br><code>cd redis-monitor-state/bin</code><br><code>./redis-state –help</code></p>
-<p>如果报错，再下载个别gem 文件 ，我安装时缺少 readline 下载rb-readline-0.5.4.gem 单独安装 </p>
-<p><code>gem install rb_readline-0.5.4.gem</code> </p>
-<p>再次执行 </p>
-<p><code>./redis-state –help</code><br>详细可参考官方：<a href="https://github.com/junegunn/redis-stat或http://www.cnblogs.com/chenpingzhao/p/5429890.html" target="_blank" rel="noopener">https://github.com/junegunn/redis-stat或http://www.cnblogs.com/chenpingzhao/p/5429890.html</a></p>
-<p>缺点：安装完成之后发现对集群的支持不好，适合于单个实例的监控，不适用于整个集群动态监控。继续入坑……</p>
-<h3 id="3、Redis-monitor"><a href="#3、Redis-monitor" class="headerlink" title="3、Redis-monitor"></a>3、Redis-monitor</h3><p>是对Redis-live的改进，安装跟Redis-live同样的依赖即可。<br>安装过程的难题：<br>（1）配置文件redis_live.conf 文件改动较大，json格式不要写错，否则会导致获取不到conf文件；配置文件用不合适的编辑器打开过，携带入部分错误的换行符<br>（2）源码对redis高版本的支持，可能会报错指向 /redis-monitor-master/src/api/controller/BaseController.py 第30行， 改为 slaves += str(info[“slave” + (str)(i)]) 另外 redis_monitor.py 198行，同样的改法。<br>（3）访问url 403 forbidden ，实际访问的url: ip:8888/index.html<br>安装完成，完美监控集群。<br>项目：<a href="https://github.com/LittlePeng/redis-monitor" target="_blank" rel="noopener">https://github.com/LittlePeng/redis-monitor</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -761,153 +476,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/28/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="hg">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="活到老，学到老">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/28/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-28T14:55:49+08:00">
-                2019-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/28/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/10/28/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -915,6 +488,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -935,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -987,6 +580,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景说明"><span class="nav-number">1.</span> <span class="nav-text">背景说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境信息"><span class="nav-number">2.</span> <span class="nav-text">环境信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">3.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#出现的问题及解决："><span class="nav-number">3.1.</span> <span class="nav-text">出现的问题及解决：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1100,10 +709,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -1121,6 +730,18 @@
       <script id="dsq-count-scr" src="https://hgdevblog.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/10/29/Redis-cluster%E5%A4%9A%E8%8A%82%E7%82%B9%E5%A4%9A%E5%AE%9E%E4%BE%8B%E5%AE%89%E8%A3%85/';
+          this.page.identifier = '2019/10/29/Redis-cluster多节点多实例安装/';
+          this.page.title = 'Redis-cluster多节点多实例安装';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hgdevblog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
