@@ -49,7 +49,7 @@
   <entry>
     <title>Redis-cluster多节点多实例安装</title>
     <url>/2019/10/29/Redis-cluster%E5%A4%9A%E8%8A%82%E7%82%B9%E5%A4%9A%E5%AE%9E%E4%BE%8B%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<p>官方给出的安装文档是在一台物理机安装多个Redis实例，<a href="https://redis.io/topics/cluster-tutorial" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial</a> 我的生产环境是多台物理机，安装起来就更简单</p>
+    <content><![CDATA[<p>官方给出的安装文档是在一台物理机安装多个Redis实例，<a href="https://redis.io/topics/cluster-tutorial" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial</a> 我的生产环境是多台物理机，安装起来就更简单<a id="more"></a></p>
 <h2 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h2><p>6台物理机 CentOS7.2-1511-minimal</p>
 <p>ip:192.168.1.101-192.168.1.106</p>
 <p>网络环境：内网 挂载Everything.iso作为本地yum源 ，可参考我的一篇文章 <a href="http://blog.csdn.net/github_38358734/article/details/70212412" target="_blank" rel="noopener">http://blog.csdn.net/github_38358734/article/details/70212412</a></p>
