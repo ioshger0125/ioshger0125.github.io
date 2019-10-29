@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Redis,Redis cluster," />
 
 
 
@@ -96,14 +96,15 @@
 
 
 
-<meta name="description" content="背景说明注：官方给出的安装文档是在一台物理机安装多个Redis实例，https:&#x2F;&#x2F;redis.io&#x2F;topics&#x2F;cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单 环境信息6台物理机 CentOS7.2-1511-minimal ip:192.168.1.101-192.168.1.106 网络环境：内网 挂载Everything.iso作为本地yum源 ，可参考我的">
+<meta name="description" content="官方给出的安装文档是在一台物理机安装多个Redis实例，https:&#x2F;&#x2F;redis.io&#x2F;topics&#x2F;cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单">
+<meta name="keywords" content="Redis,Redis cluster">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis-cluster多节点多实例安装">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;29&#x2F;Redis-cluster%E5%A4%9A%E8%8A%82%E7%82%B9%E5%A4%9A%E5%AE%9E%E4%BE%8B%E5%AE%89%E8%A3%85&#x2F;index.html">
 <meta property="og:site_name" content="活到老，学到老">
-<meta property="og:description" content="背景说明注：官方给出的安装文档是在一台物理机安装多个Redis实例，https:&#x2F;&#x2F;redis.io&#x2F;topics&#x2F;cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单 环境信息6台物理机 CentOS7.2-1511-minimal ip:192.168.1.101-192.168.1.106 网络环境：内网 挂载Everything.iso作为本地yum源 ，可参考我的">
+<meta property="og:description" content="官方给出的安装文档是在一台物理机安装多个Redis实例，https:&#x2F;&#x2F;redis.io&#x2F;topics&#x2F;cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-29T02:34:29.588Z">
+<meta property="og:updated_time" content="2019-10-29T07:42:16.076Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -277,7 +278,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hg">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -311,6 +312,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -350,7 +373,7 @@
       
 
       
-        <h2 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h2><p>注：官方给出的安装文档是在一台物理机安装多个Redis实例，<a href="https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单</a></p>
+        <p>官方给出的安装文档是在一台物理机安装多个Redis实例，<a href="https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial，我的生产环境是多台物理机，安装起来就更简单</a><a id="more"></a></p>
 <h2 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h2><p>6台物理机 CentOS7.2-1511-minimal</p>
 <p>ip:192.168.1.101-192.168.1.106</p>
 <p>网络环境：内网 挂载Everything.iso作为本地yum源 ，可参考我的一篇文章 <a href="http://blog.csdn.net/github_38358734/article/details/70212412" target="_blank" rel="noopener">http://blog.csdn.net/github_38358734/article/details/70212412</a></p>
@@ -449,6 +472,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
+          
+            <a href="/tags/Redis-cluster/" rel="tag"><i class="fa fa-tag"></i> Redis cluster</a>
+          
+        </div>
+      
 
       
       
@@ -542,7 +573,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="hg" />
           <p class="site-author-name" itemprop="name">hg</p>
            
@@ -565,7 +596,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -576,7 +607,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -594,6 +625,30 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ioshger0125 || github" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:hger0125@gmail.com || envelope" target="_blank" title="GMail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      GMail
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -618,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景说明"><span class="nav-number">1.</span> <span class="nav-text">背景说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境信息"><span class="nav-number">2.</span> <span class="nav-text">环境信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">3.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#出现的问题及解决："><span class="nav-number">3.1.</span> <span class="nav-text">出现的问题及解决：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境信息"><span class="nav-number">1.</span> <span class="nav-text">环境信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">2.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#出现的问题及解决："><span class="nav-number">2.1.</span> <span class="nav-text">出现的问题及解决：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -695,6 +750,8 @@
   
 
 
+  
+
 
 
 
@@ -722,6 +779,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

@@ -96,15 +96,15 @@
 
 
 
-<meta name="description" content="修改${HIVE_HOME}&#x2F;conf&#x2F;hive-site.xml配置文件  命令行参数  在已经进入cli时进行参数声明   修改配置文件方式在Hive中，所有的默认配置都在HIVEHOME&#x2F;conf&#x2F;hive−default.xml文件中，如果需要对默认的配置进行修改，可以创建一个hive−site.xml文件，放在{HIVE_HOME}&#x2F;conf&#x2F;hive-default.xml文件中，里">
+<meta name="description" content="三种修改Hive sql运行使用的yarn队列的方法：1、修改配置文件 2、指定hiveconf 3、set设置变量">
 <meta name="keywords" content="Hive,Engine Queue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HIVE指定引擎队列的三种方式">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;29&#x2F;HIVE%E6%8C%87%E5%AE%9A%E5%BC%95%E6%93%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="活到老，学到老">
-<meta property="og:description" content="修改${HIVE_HOME}&#x2F;conf&#x2F;hive-site.xml配置文件  命令行参数  在已经进入cli时进行参数声明   修改配置文件方式在Hive中，所有的默认配置都在HIVEHOME&#x2F;conf&#x2F;hive−default.xml文件中，如果需要对默认的配置进行修改，可以创建一个hive−site.xml文件，放在{HIVE_HOME}&#x2F;conf&#x2F;hive-default.xml文件中，里">
+<meta property="og:description" content="三种修改Hive sql运行使用的yarn队列的方法：1、修改配置文件 2、指定hiveconf 3、set设置变量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-29T07:09:03.114Z">
+<meta property="og:updated_time" content="2019-10-29T07:30:00.682Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -278,7 +278,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hg">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -384,7 +384,8 @@
       
 
       
-        <ul>
+        <p>三种修改Hive sql运行使用的yarn队列的方法：1、修改配置文件 2、指定hiveconf 3、set设置变量<a id="more"></a></p>
+<ul>
 <li><p>修改${HIVE_HOME}/conf/hive-site.xml配置文件</p>
 </li>
 <li><p>命令行参数</p>
@@ -427,9 +428,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hive/" rel="tag"># Hive</a>
+            <a href="/tags/Hive/" rel="tag"><i class="fa fa-tag"></i> Hive</a>
           
-            <a href="/tags/Engine-Queue/" rel="tag"># Engine Queue</a>
+            <a href="/tags/Engine-Queue/" rel="tag"><i class="fa fa-tag"></i> Engine Queue</a>
           
         </div>
       
@@ -526,7 +527,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="hg" />
           <p class="site-author-name" itemprop="name">hg</p>
            
@@ -549,7 +550,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -560,7 +561,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -578,6 +579,30 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ioshger0125 || github" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:hger0125@gmail.com || envelope" target="_blank" title="GMail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      GMail
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -679,6 +704,8 @@
   
 
 
+  
+
 
 
 
@@ -706,6 +733,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
